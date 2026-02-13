@@ -18,7 +18,7 @@ O site foi desenvolvido com HTML e CSS, oferecendo uma navegação fluida e uma 
  ┣ 📄 contato.html
  # Sobre o Projeto
  Desenvolvida para apresentar os serviços jurídicos com clareza, esta página fortalece a presença digital do escritório e facilita o contato com clientes.
- #📄Licença
+ #Licença
  Projeto de uso educacional, adaptações e portfólio.
  
  
