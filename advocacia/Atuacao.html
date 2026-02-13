@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áreas de Atuação | Advocacia Prestígio</title>
+
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Georgia', serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+       
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background: #0a1128;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #d4af37;
+            text-transform: uppercase;
+        }
+        
+        .logo a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        
+        #menu-toggle {
+            display: none; 
+        }
+
+        .menu-icon {
+            display: none; 
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 20px;
+        }
+
+        .menu-icon span {
+            width: 100%;
+            height: 3px;
+            background-color: #d4af37;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+        
+        
+        .hero-areas {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 80px 8%;
+            background: linear-gradient(rgba(10,17,40,0.85), rgba(10,17,40,0.85)),
+            url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 70vh;
+        }
+    
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 35px;
+            background: #d4af37;
+            color: #0a1128;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: 0.4s;
+            border: 2px solid #d4af37;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: #d4af37;
+            transform: translateY(-3px);
+        }
+        
+       
+        .services-areas {
+            padding: 80px 8%;
+            background: #fff;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #0a1128;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        .section-links a {
+            color: #0a1128;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 5px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card-servico {
+            background: #fcfcfc;
+            border: 1px solid #eee;
+            padding: 40px 30px;
+            transition: 0.4s;
+        }
+
+        .card-servico:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #d4af37;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .card-servico h3 {
+            font-size: 1.4rem;
+            color: #0a1128;
+            margin-bottom: 15px;
+        }
+        
+        .card-desc {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .card-links {
+            color: #0a1128;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .card-links:hover {
+            color: #d4af37;
+        }
+
+        /* --- DIFERENCIAIS --- */
+        .diferenciais {
+            padding: 100px 8%;
+            background: linear-gradient(145deg, #faf7f0, #f5f0e6);
+            border-top: 1px solid rgba(212,175,55,0.3);
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+            position: relative;
+        }
+
+        .diferenciais::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f5e7c8, #d4af37);
+        }
+        
+        .diferenciais-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .diferenciais-header h2 {
+            font-size: 2.2rem;
+            color: #0a1128;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .diferenciais-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #d4af37;
+        }
+        
+        .diferenciais-header p {
+            font-size: 1.1rem;
+            color: #5a4e3a;
+            font-style: italic;
+        }
+        
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .diferencial-card {
+            background: white;
+            padding: 45px 35px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.08);
+            transition: 0.4s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diferencial-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f5e7c8);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .diferencial-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .diferencial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.15);
+            border-color: #d4af37;
+        }
+        
+        .diferencial-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .diferencial-card h3 {
+            font-size: 1.4rem;
+            color: #0a1128;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .diferencial-card p {
+            color: #5a4e3a;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        
+        .autoridade {
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #0c1a2e, #0a1128);
+            color: white;
+            position: relative;
+            border-bottom: 1px solid #d4af37;
+        }
+
+        .autoridade::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .autoridade-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .autoridade-conteudo {
+            flex: 1 1 500px;
+        }
+
+        .autoridade-tag {
+            display: inline-block;
+            background: #d4af37;
+            color: #0a1128;
+            padding: 6px 18px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 30px;
+        }
+
+        .autoridade-conteudo h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .autoridade-conteudo p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .autoridade-lista {
+            list-style: none;
+        }
+
+        .autoridade-lista li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            opacity: 0.95;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .autoridade-lista li::before {
+            content: '✓';
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+
+        
+        .compromisso {
+            padding: 100px 8%;
+            background: linear-gradient(145deg, #fef9e7, #fdf3d9);
+            text-align: center;
+            position: relative;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+        }
+
+        .compromisso-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .compromisso h2 {
+            font-size: 2.4rem;
+            color: #0a1128;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .compromisso > p {
+            font-size: 1.2rem;
+            color: #5a4e3a;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .compromisso-itens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .item {
+            background: white;
+            padding: 45px 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.12);
+            transition: 0.4s;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+
+        .item span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .item h4 {
+            font-size: 1.3rem;
+            color: #0a1128;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .item p {
+            color: #5a4e3a;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        
+        .practices {
+            padding: 80px 8%;
+            background: #fff;
+        }
+
+        .practices h2 {
+            font-size: 2rem;
+            color: #0a1128;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .practices h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        .tags-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .practice-tag {
+            background: #fff;
+            border: 1px solid #d4af37;
+            color: #0a1128;
+            padding: 12px 25px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .practice-tag:hover {
+            background: #d4af37;
+            color: #0a1128;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+      
+        .cta-final {
+            padding: 80px 8%;
+            background: #0a1128;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f5e7c8, #d4af37);
+        }
+
+        .cta-final h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 16px 45px;
+            background: #d4af37;
+            color: #0a1128;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: 0.4s;
+            border: 2px solid #d4af37;
+            font-size: 1rem;
+        }
+
+        .btn-cta:hover {
+            background: transparent;
+            color: #d4af37;
+            transform: translateY(-3px);
+        }
+
+        
+        footer {
+            background: #0a1128;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #1e2a47;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1.2rem 5%;
+            }
+
+            .menu-icon {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                background: #0a1128;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            #menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            #menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            .hero-areas {
+                flex-direction: column;
+                padding: 60px 5%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .autoridade-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .autoridade-lista {
+                text-align: left;
+            }
+
+            .selo {
+                width: 160px;
+                height: 160px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Advocacia Prestígio</div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="Atuacao.html">Áreas de Atuação</a></li>
+                <li><a href="sobre.html">Sobre o Escritório</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-areas">
+        <div class="hero-content">
+            <h1>Descomplicando<br>Complexidades Jurídicas</h1>
+            <p>Na Advocacia Prestígio, transformamos desafios legais em oportunidades estratégicas. Nossa equipe experiente entrega soluções jurídicas excepcionais e personalizadas para proteger e empoderar você.</p>
+            <a href="" class="btn-primary">Falar com especialista</a>
+        </div>
+    </section>
+    
+    
+    <section id="areas" class="services-areas">
+        <div class="section-header">
+            <h2 class="section-title">Áreas de Atuação</h2>
+            <div class="section-links">
+                <a href="#praticas">Todas as práticas →</a>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div id="civil" class="card-servico">
+                <h3>Direito Civil</h3>
+                <p class="card-desc">Assessoria completa em contratos, indenizações, responsabilidade civil e direito imobiliário. Atuação preventiva e contenciosa.</p>
+               
+            </div>
+            <div id="familia" class="card-servico">
+                <h3>Família e Sucessões</h3>
+                <p class="card-desc">Mediação humanizada em divórcio, guarda, pensão alimentícia e inventários. Soluções consensuais para preservar relações.</p>
+              
+            </div>
+            <div id="tributario" class="card-servico">
+                <h3>Direito Tributário</h3>
+                <p class="card-desc">Planejamento tributário, defesa em execuções fiscais e recuperação de créditos. Redução comprovada da carga tributária.</p>
+               
+            </div>
+            <div id="trabalhista" class="card-servico">
+                <h3>Direito Trabalhista</h3>
+                <p class="card-desc">Defesa em reclamações trabalhistas, compliance e acordos extrajudiciais. Atendimento para empresas e empregados.</p>
+               
+            </div>
+            <div id="previdenciario" class="card-servico">
+                <h3>Direito Previdenciário</h3>
+                <p class="card-desc">Aposentadorias, pensões, auxílio-doença e BPC. Especialistas exclusivos em benefícios do INSS.</p>
+               
+            </div>
+            <div id="consumidor" class="card-servico">
+                <h3>Direito do Consumidor</h3>
+                <p class="card-desc">Negativas de planos de saúde, cobranças indevidas e danos morais. Mais de 500 negativas revertidas.</p>
+               
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="diferenciais">
+        <div class="diferenciais-header">
+            <h2>Por que nos escolher?</h2>
+            <p>Mais que advocacia, uma parceria estratégica para sua segurança e tranquilidade.</p>
+        </div>
+        <div class="diferenciais-grid">
+            <div class="diferencial-card">
+                <div class="diferencial-icon"></div>
+                <h3>Atendimento em 24h</h3>
+                <p>Retorno garantido no próximo dia útil. Sem filas de espera. Sem respostas automáticas.</p>
+            </div>
+            <div class="diferencial-card">
+                <div class="diferencial-icon"></div>
+                <h3>Especialista dedicado</h3>
+                <p>Atendimento Especializado: Você fala diretamente com o profissional Responsavel pelo seu caso</p>
+            </div>
+            <div class="diferencial-card">
+                <div class="diferencial-icon"></div>
+                <h3>Linguagem simples</h3>
+                <p>Traduzimos o juridiquês. Você entende cada etapa do processo sem sustos.</p>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="autoridade">
+        <div class="autoridade-container">
+            <div class="autoridade-conteudo">
+                <span class="autoridade-tag">DIFERENCIAL</span>
+                <h2>Excelência reconhecida</h2>
+                <p>Nosso escritório é referência em <strong>Direito Civil e Empresarial</strong>, com atuação reconhecida por instituições de ensino e associações jurídicas.</p>
+                <ul class="autoridade-lista">
+                    <li>Recomendado pela OAB/SP (Comissão de Direito Civil)</li>
+                    <li>5 estrelas no Google Avaliações</li>
+                    <li>Mais de 80% dos clientes vieram por indicação</li>
+                </ul>
+            </div>
+           
+        </div>
+    </section>
+
+   
+    <section class="compromisso">
+        <div class="compromisso-content">
+            <h2>Advocacia sem juridiquês.<br>Compromisso com a verdade.</h2>
+            <p>Não prometemos o impossível. Não iludimos clientes. Nossa força está na transparência e na técnica.</p>
+            <div class="compromisso-itens">
+                <div class="item">
+                    <span></span>
+                    <h4>Diagnóstico realista</h4>
+                    <p>Você saberá as chances reais desde o primeiro contato.</p>
+                </div>
+                <div class="item">
+                    <span></span>
+                    <h4>Honorários justos</h4>
+                    <p>Modelos flexíveis e alinhados com o seu caso.</p>
+                </div>
+                <div class="item">
+                    <span></span>
+                    <h4>Sem letras miúdas</h4>
+                    <p>Contrato claro, sem cláusulas abusivas ou pegadinhas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="praticas" class="practices">
+        <h2>Práticas Complementares</h2>
+        <div class="tags-grid">
+            <span class="practice-tag">Direito Empresarial</span>
+            <span class="practice-tag">Direito Imobiliário</span>
+            <span class="practice-tag">Direito Digital</span>
+            <span class="practice-tag">Direito Ambiental</span>
+            <span class="practice-tag">Direito Penal Empresarial</span>
+            <span class="practice-tag">Direito da Saúde</span>
+            <span class="practice-tag">Direito Contratual</span>
+            <span class="practice-tag">Direito Bancário</span>
+            <span class="practice-tag">Direito Internacional</span>
+            <span class="practice-tag">Recuperação de Créditos</span>
+            <span class="practice-tag">Propriedade Intelectual</span>
+            <span class="practice-tag">Direito Portuário</span>
+            <span class="practice-tag">Direito Desportivo</span>
+            <span class="practice-tag">Compliance</span>
+        </div>
+    </section>
+
+   
+    <section class="cta-final">
+        <h2>Qual é o seu caso?</h2>
+        <p>Conte com uma equipe especializada, ética e que realmente se importa com o seu problema. Atendimento em até 24 horas.</p>
+        <a href="" class="btn-cta"> Falar com especialista</a>
+      
+    </section>
+
+  
+    <footer id="contato">
+        <div class="footer-info">
+            <p><strong>Dr. Nome do Advogado - OAB/XX 000.000</strong></p>
+            <p>Rua Jurídica, 123 - Edifício Business, Sala 405</p>
+            <p>Centro - São Paulo/SP | CEP: 01000-000</p>
+            <p>E-mail: contato@advocaciaprestigio.com.br</p>
+            <p>Telefone: (11) 99999-9999</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Início</a>
+                <a href="Atuacao.html">Áreas de Atuação</a>
+                <a href="sobre.html">Sobre o Escritório</a>
+                <a href="#contato">Contato</a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.75rem; color: #666; letter-spacing: 1px;">
+                &copy; 2026 Advocacia Prestígio. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
