@@ -12,10 +12,13 @@ O site foi desenvolvido com HTML e CSS, oferecendo uma navegação fluida e uma 
 ✔️ Layout moderno 
 # Estrutura do Projeto
 📦 advocacia-prestigio
- ┣ 📄 index.html
- ┣ 📄 atuacao.html
- ┣ 📄 sobre.html
- ┣ 📄 contato.html
+ advocacia-prestigio
+├── index.html
+├── atuacao.html
+├── sobre.html
+├── contato.html
+
+
  # Sobre o Projeto
  Desenvolvida para apresentar os serviços jurídicos com clareza, esta página fortalece a presença digital do escritório e facilita o contato com clientes.
  #Licença
